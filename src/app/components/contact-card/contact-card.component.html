@@ -1,0 +1,22 @@
+<div class="card p-3 mb-3">
+    <ng-container *ngIf="!editMode; else editForm">
+      <h5>{{ contact.fName }} {{ contact.lName }}</h5>
+      <p>📞 {{ contact.phoneNumber }}</p>
+      <p>📧 {{ contact.email }}</p>
+      <button class="btn btn-sm btn-warning me-2" (click)="enableEdit()">Edit</button>
+      <button class="btn btn-sm btn-danger" (click)="delete.emit(contact.id)">Delete</button>
+    </ng-container>
+  
+    <ng-template #editForm>
+      <input class="form-control mb-2" [(ngModel)]="editedContact.fName" placeholder="First Name" />
+      <input class="form-control mb-2" [(ngModel)]="editedContact.lName" placeholder="Last Name" />
+      <input class="form-control mb-2" [(ngModel)]="editedContact.phoneNumber" placeholder="Phone" />
+      <input class="form-control mb-2" [(ngModel)]="editedContact.email" placeholder="Email" />
+  
+      <button class="btn btn-sm btn-success me-2" (click)="submitEdit()">Save</button>
+      <button class="btn btn-sm btn-secondary" (click)="cancelEdit()">Cancel</button>
+    </ng-template>
+  </div>
+  
+  
+  

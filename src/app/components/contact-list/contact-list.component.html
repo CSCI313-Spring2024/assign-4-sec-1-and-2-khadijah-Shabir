@@ -1,0 +1,32 @@
+<div class="card p-3 mb-4">
+    <h5>Add New Contact</h5>
+    <div class="row">
+      <div class="col-md-8">
+        <input class="form-control mb-2" placeholder="First Name" [(ngModel)]="newContact.fName" />
+      </div>
+      <div class="col-md-8">
+        <input class="form-control mb-2" placeholder="Last Name" [(ngModel)]="newContact.lName" />
+      </div>
+      <div class="col-md-8">
+        <input class="form-control mb-2" placeholder="Phone" [(ngModel)]="newContact.phoneNumber" />
+      </div>
+      <div class="col-md-8">
+        <input class="form-control mb-2" placeholder="Email" [(ngModel)]="newContact.email" />
+      </div>
+    </div>
+    <button class="btn btn-primary mt-2" (click)="handleAddContact()">Add Contact</button>
+  </div>
+  
+  <!-- existing contact cards -->
+  <div class="row">
+    <div class="col-md-4" *ngFor="let contact of contacts">
+      <app-contact-card
+        [contact]="contact"
+        (delete)="deleteContact($event)"
+        (save)="updateContact($event)">
+      </app-contact-card>
+    </div>
+  </div>
+  
+  
+  
